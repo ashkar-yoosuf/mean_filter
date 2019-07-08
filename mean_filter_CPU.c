@@ -25,7 +25,7 @@ int main(int argc, char **argv){
 	filtered_img = (float *)malloc(img_size * sizeof(float));
 
     FILE* inp;
-    inp = fopen("img640.txt", "r");
+    inp = fopen("img1280.txt", "r");
     char line[6];
     char *endptr;
     int i = 0;
