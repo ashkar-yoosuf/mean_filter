@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <math.h>
 #include <string.h>
+#include <time.h>
 
 float *img_arr;
 float *img_arr_padded;
@@ -65,10 +66,16 @@ int main(int argc, char **argv){
 
     free(img_arr);
 
+    clock_t start_filter = clock();
 	filterCPU(img_arr_padded, filtered_img, img_dim, img_padded_dim, pad, kernel_dim);
+    clock_t end_filter = clock();
+
+    double time_filter = (double)(end_filter-start_filter)/CLOCKS_PER_SEC;
 
 	// for (int i = 0; i < img_size; i++)
 	// 	printf ("%f\n", filtered_img[i]);
+
+    printf("Image size : %d Window size : %d CPU Filter Time: %f\n",img_dim, kernel_dim , time_filter);
 
     free(filtered_img);
     free(img_arr_padded);
