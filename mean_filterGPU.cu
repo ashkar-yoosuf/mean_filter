@@ -88,8 +88,8 @@ bool meanFilterGPU(float* image, float* outputImage){
 	cudaEventCreate(&stop);
 	cudaEventRecord(start);
 	cudaError_t status;
-	int width = 640;
-	int height = 640;
+	int width = 1280;
+	int height = 1280;
 
     int size =  width * height * sizeof(float);
     
@@ -151,13 +151,13 @@ if (status != cudaSuccess) {
 int main()
 {
     // freopen("filtered640GPU.txt","w",stdout);
-    int size = 640*640;
+    int size = 1280*1280;
     float *img, *filtered_img;
     img = (float *)malloc(size * sizeof(float));
 	filtered_img = (float *)malloc(size * sizeof(float));
 
     FILE* inp;
-    inp = fopen("img640.txt","r");
+    inp = fopen("img1280.txt","r");
     char line[6];
     char *endptr;
     int i = 0;
